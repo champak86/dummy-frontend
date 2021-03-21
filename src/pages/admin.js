@@ -20,6 +20,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { toast } from "react-toastify";
 import Backdrop from "@material-ui/core/Backdrop";
 import { makeStyles } from "@material-ui/core/styles";
+import { findByLabelText } from "@testing-library/dom";
 
 const override = css`
   display: block;
@@ -31,11 +32,6 @@ const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
     color: "#fff",
-  },
-  noRecord: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
   },
 }));
 
@@ -132,7 +128,9 @@ const Admin = () => {
                 );
               })
             ) : (
-              <div className={classes.noRecord}>No record found</div>
+              <TableRow>
+                <TableCell rowSpan={2}>No records found</TableCell>
+              </TableRow>
             )}
           </TableBody>
           {loading ? (
