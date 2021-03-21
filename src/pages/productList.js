@@ -50,7 +50,6 @@ const ProductList = () => {
     <div className="App" ref={infiniteRef}>
       {product &&
         product.map((item, key) => {
-          console.log('item', item);
           return <ProductCard key={item._id} item={item} />;
         })}
     </div>
